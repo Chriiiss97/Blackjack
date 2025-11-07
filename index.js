@@ -7,10 +7,15 @@ let  message = "";
 
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
+let cardsEl = document.getElementById("cards-el");
+
 
 function startGame() {
+    renderGame()
+}
 
-sumEl.textContent = "Sum: " + sum;
+
+function renderGame() {
 
  if (sum < 21) {
     message = "Do you want to draw a new card?"
@@ -30,4 +35,14 @@ sumEl.textContent = "Sum: " + sum;
 
 
     messageEl.textContent = message;
+    sumEl.textContent = "Sum: " + sum;
+   cardsEl.textContent = "Cards: " + firstCard + ", " + secondCard;
 }
+
+function newCard() {
+      let card = 1;
+      sum += card
+      startGame();
+      cardsEl.textContent += ", " + card;
+}
+
